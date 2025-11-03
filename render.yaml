@@ -2,7 +2,7 @@ services:
   - type: web
     name: flexpilot-ide
     env: node
-    buildCommand: chmod +x render-build.sh && ./render-build.sh
+    buildCommand: npm install --ignore-scripts && npm run download-builtin-extensions && npm run compile-build && npm run compile-web && npm run minify-vscode-reh-web
     startCommand: npm run render:start
     plan: starter
     envVars:
