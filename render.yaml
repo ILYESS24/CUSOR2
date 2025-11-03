@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: flexpilot-ide
+    env: node
+    buildCommand: npm install && npm run render:build
+    startCommand: npm run render:start
+    plan: starter
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: VSCODE_SKIP_PRELAUNCH
+        value: "1"
+    healthCheckPath: /
+    autoDeploy: true
+
