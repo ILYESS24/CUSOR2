@@ -4,7 +4,7 @@ services:
     env: node
     buildCommand: NODE_OPTIONS="--max-old-space-size=4096" npm install --ignore-scripts && npm run download-builtin-extensions && NODE_OPTIONS="--max-old-space-size=4096" npm run compile-build && NODE_OPTIONS="--max-old-space-size=4096" npm run compile-web && NODE_OPTIONS="--max-old-space-size=4096" npm run minify-vscode-reh-web
     startCommand: npm run render:start
-    plan: starter
+    plan: standard  # Starter (512MB) insuffisant pour compiler VS Code, Standard (2GB) recommandé
     envVars:
       - key: NODE_ENV
         value: production
