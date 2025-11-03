@@ -67,7 +67,8 @@
     "perf": "node scripts/code-perf.js",
     "update-build-ts-version": "npm install typescript@next && tsc -p ./build/tsconfig.build.json",
     "render:start": "node render-start.js",
-    "render:build": "npm run download-builtin-extensions && npm run compile-build && npm run compile-web && npm run minify-vscode-reh-web"
+    "render:build": "npm run download-builtin-extensions && npm run compile-build && npm run compile-web && npm run minify-vscode-reh-web",
+    "render:install": "npm install --ignore-scripts"
   },
   "dependencies": {
     "@flexpilot/gulp-electron": "github:flexpilot-ai/vscode-gulp-electron",
