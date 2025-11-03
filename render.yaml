@@ -2,7 +2,7 @@ services:
   - type: web
     name: flexpilot-ide
     env: node
-    buildCommand: npm install --ignore-scripts && npm run download-builtin-extensions && npm run compile-build && npm run compile-web && npm run minify-vscode-reh-web
+    buildCommand: NODE_OPTIONS="--max-old-space-size=4096" npm install --ignore-scripts && npm run download-builtin-extensions && NODE_OPTIONS="--max-old-space-size=4096" npm run compile-build && NODE_OPTIONS="--max-old-space-size=4096" npm run compile-web && NODE_OPTIONS="--max-old-space-size=4096" npm run minify-vscode-reh-web
     startCommand: npm run render:start
     plan: starter
     envVars:
@@ -12,6 +12,8 @@ services:
         value: 0.0.0.0
       - key: VSCODE_SKIP_PRELAUNCH
         value: "1"
+      - key: NODE_OPTIONS
+        value: "--max-old-space-size=4096"
     healthCheckPath: /
     autoDeploy: true
 
